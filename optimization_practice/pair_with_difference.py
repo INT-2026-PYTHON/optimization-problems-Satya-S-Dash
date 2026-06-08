@@ -79,3 +79,23 @@ overall O(n) algorithm.
 =================================================
 
 """
+n = int(input("Enter number of elements present in the list: "))
+list = []
+for i in range(n):
+   temp = int(input("Enter the element: "))
+   list.append(temp)
+target = int(input("Enter the absolute difference: "))   
+def has_pair_brute(nums, k):
+   for i in range(len(nums)):
+      for j in range(i+1,len(nums)):
+         if nums[i] - nums[j] == k and i < j:
+            return True
+   return False
+def has_pair_fast(nums, k):
+   num = set(nums)
+   for i in nums:
+      if (i + k) in num or (i - k) in num:
+         return True
+   return False
+print(has_pair_brute(list, target))
+print(has_pair_fast(list, target))        
