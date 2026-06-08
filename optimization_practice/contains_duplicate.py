@@ -63,3 +63,28 @@ Optimized:   False  # O(n)
 =================================================
 
 """
+n = int(input("Enter the number of elements in the list: "))
+nums = []
+print("Enter the elements:")
+for i in range(n):
+    num = (int(input("Enter the element: ")))
+    nums.append(num)
+def has_duplicate_brute(nums):
+  for i in range(len(nums)):
+    for j in range(i + 1, len(nums)):
+      if nums[i] == nums[j]:
+        return True
+  return False
+
+def has_duplicate_fast(nums):
+  seen = set()
+  for i in nums:
+      if i in seen:
+        return True
+      seen.add(i)
+  return False
+
+result_brute = has_duplicate_brute(nums)
+result_fast = has_duplicate_fast(nums)
+print(f"Brute Force: {result_brute}")
+print(f"Optimized:   {result_fast}")
